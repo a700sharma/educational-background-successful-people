@@ -11,7 +11,7 @@ print(df.columns)
 # 3. Basic Data Overview
 print(df.head())
 print(df.info())
-print(df.describe())
+print(df.describe())  
 
 # 4. Data Cleaning
 df.dropna(subset=['Degree', 'Profession'], inplace=True)
