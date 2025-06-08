@@ -55,3 +55,6 @@ pip install -r requirements.txt
 # Run the analysis script
 python notebooks/education_analysis.py
 
+🛠 Author
+Made by Abhishek
+GitHub → a700sharma
