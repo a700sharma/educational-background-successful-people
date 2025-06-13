@@ -3,9 +3,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import os
+
+# Ensure the folder path exists
+os.makedirs('images/visualizations', exist_ok=True)
+print("Current Working Directory:", os.getcwd())
+
 
 # 2. Load Dataset
-df = pd.read_csv("../data/successful_educations.csv")
+df = pd.read_csv("data/successful_educations.csv")
+print(df.head())
 print(df.columns)
 
 # 3. Basic Data Overview
@@ -24,7 +31,7 @@ plt.title("Distribution of Degrees")
 plt.xlabel("Degree")
 plt.ylabel("Count")
 plt.tight_layout()
-plt.savefig("../images/visualizations/degree_distribution.png")
+plt.savefig("images/visualizations/degree_distribution.png")
 plt.close()
 
 # 6. Degree vs Profession
@@ -32,7 +39,7 @@ plt.figure(figsize=(10,6))
 sns.countplot(y='Profession', hue='Degree', data=df, order=df['Profession'].value_counts().index)
 plt.title("Degree by Profession")
 plt.tight_layout()
-plt.savefig("../images/visualizations/degree_by_profession.png")
+plt.savefig("images/visualizations/degree_by_profession.png")
 plt.close()
 
 # 7. Education by Country (if 'Country' exists)
@@ -41,11 +48,11 @@ if 'Country' in df.columns:
     df['Country'].value_counts().head(10).plot(kind='bar', color='orange')
     plt.title("Top 10 Countries by Education Count")
     plt.tight_layout()
-    plt.savefig("../images/visualizations/top_countries.png")
+    plt.savefig("images/visualizations/top_countries.png")
     plt.close()
 
 # 8. Export cleaned data
-df.to_csv("../data/cleaned_successful_education.csv", index=False)
+df.to_csv("data/cleaned_successful_education.csv", index=False)
 
 # 9. Final message
 print("✅ Analysis complete. Cleaned data and visuals are saved.")

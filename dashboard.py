@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('data/cleaned_successful_educat     ion.csv')
+df = pd.read_csv('data/cleaned_successful_education.csv')
 
 st.title("Academic Origins of Successful People")
 
